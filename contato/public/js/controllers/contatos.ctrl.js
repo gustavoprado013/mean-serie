@@ -7,4 +7,11 @@ angular.module('agenda').controller("contatosCtrl", function($scope){
     $scope.contatos.push(contato);
     delete $scope.contato;
   }
+
+  $scope.remover = function(contato){
+    $scope.contatos = $scope.contatos.filter(function (cont) {
+      return cont != contato;
+    });
+
+  }
 });
