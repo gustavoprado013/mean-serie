@@ -4,13 +4,16 @@
 
 <div class="form-inline">
 
-
     <a href="#/contato" class="btn btn-primary">Novo Contato</a>
 
     <div class="form-group">
       <span class="label label-default" for="">Nome:</span>
       <input class="form-control" type="text" name="name" value="" placeholder="Nome Completo" ng-model="contato.nome">
     </div>
+</div>
+
+<div class="alert alert-success" ng-if="message.text">
+  {{message.text}}
 </div>
 
 <div class="alert alert-danger" ng-if="contatos.length === 0">
@@ -27,6 +30,7 @@
   <tbody>
     <tr ng-repeat="contato in contatos">
       <td>{{contato.nome}}</td>
+      <td>{{contato.email}}</td>
       <td>
       <button ng-click="remover(contato)" class="btn btn-warning" type="button" name="button">Excluir</button>
       </td>

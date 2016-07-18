@@ -10,4 +10,11 @@ angular.module('agenda').config(function ($routeProvider) {
     controller: 'contatoCtrl'
   });
 
-})
+  $routeProvider.when('/contato/:id', {
+    templateUrl: 'partials/contato.html',
+    controller: 'contatoCtrl'
+  });
+
+  $routeProvider.otherwise({redirectTo: '/contatos'});
+
+});

@@ -1,17 +1,29 @@
-angular.module('agenda').controller("contatosCtrl", function($scope){
-  $scope.title = "Contato";
-  $scope.contato = {};
+angular.module('agenda').controller("contatosCtrl", function($scope, $http){
+
+  $scope.title = "Contatos";
   $scope.contatos = [];
+  $scope.message = {};
 
-  $scope.adicionar = function (contato) {
-    $scope.contatos.push(contato);
-    delete $scope.contato;
+  $scope.remover = function (contato) {
+    $http.delete('contatos/' + contato._id).success(function (data) {
+      $scope.message.text = data;
+      carregarContatos();
+    }).error(function (error) {
+      console.log(error);
+    })
   }
 
-  $scope.remover = function(contato){
-    $scope.contatos = $scope.contatos.filter(function (cont) {
-      return cont != contato;
-    });
-
+  var carregarContatos = function () {
+    $http.get('/contatos').then(success, error);
   }
+
+  var success = function (success) {
+    $scope.contatos = success.data;
+  }
+
+  var error = function (error) {
+    console.log(error);
+  }
+
+  carregarContatos();
 });
