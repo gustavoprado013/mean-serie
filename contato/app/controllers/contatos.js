@@ -34,5 +34,9 @@ module.exports = function(app){
     res.send('Contato removido!').end();
   }
 
+  controller.salvarContato = function (req, res, next) {
+    console.log(req.body);
+  }
+
   return controller;
 }
