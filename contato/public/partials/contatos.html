@@ -29,8 +29,8 @@
   </tr>
   <tbody>
     <tr ng-repeat="contato in contatos">
-      <td>{{contato.nome}}</td>
-      <td>{{contato.email}}</td>
+      <td><a href="#/contato/{{contato._id}}">{{contato.nome}}</a></td>
+      td><a href="#/contato/{{contato._id}}">{{contato.email}}</a></td>
       <td>
       <button ng-click="remover(contato)" class="btn btn-warning" type="button" name="button">Excluir</button>
       </td>

@@ -10,6 +10,8 @@ module.exports = function(app){
     {_id: 5, nome: 'contato1', email: 'cont@email.com'},
   ];
 
+  var _id = 6;
+
   controller.listarContatos = function(req, res, next){
     res.json(contatos);
   }
@@ -35,7 +37,29 @@ module.exports = function(app){
   }
 
   controller.salvarContato = function (req, res, next) {
-    console.log(req.body);
+    var contato = req.body;
+
+    contato = contato._id ?
+      atualizar(contato):
+      adicionar(contato);
+
+      res.json(contato);
+  }
+
+  var atualizar = function (contatoAlterar) {
+    contatos = contatos.map(function (contato) {
+      if(contato._id == contatoAlterar._id){
+        contato = contatoAlterar;
+      }
+      return contato;
+    });
+    return contatoAlterar;
+  }
+
+  var adicionar = function (contatoNovo) {
+    contatoNovo._id = _id++;
+    contatos.push(contatoNovo);
+    return contatoNovo;
   }
 
   return controller;
