@@ -8,4 +8,9 @@ angular.module('mean-blog.user').config(function ($routeProvider) {
       templateUrl: 'public/modules/user/register/view.html'
     })
 
+    .when('/login', {
+      controller: 'loginController',
+      templateUrl: 'public/modules/user/register/view.html'
+    })
+
 });

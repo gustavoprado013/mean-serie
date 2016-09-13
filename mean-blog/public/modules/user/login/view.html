@@ -1,9 +1,5 @@
 <form class="" action="index.html" method="post">
   <fieldset class="form-group">
-    <label for="">Name</label>
-    <input type="text" class="form-control" id="name" ng-model="user.name">
-  </fieldset>
-  <fieldset class="form-group">
     <label for="">Login</label>
     <input type="text" class="form-control" id="login" ng-model="user.login">
   </fieldset>
@@ -12,5 +8,5 @@
     <input type="password" class="form-control" id="password" ng-model="user.password">
   </fieldset>
 
-  <button ng-click="register(user)" class="btn btn-primary" type="button" name="button">Register</button>
+  <button ng-click="login(user)" class="btn btn-primary" type="button" name="button">Login</button>
 </form>
