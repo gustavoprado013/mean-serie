@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="agenda">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css" media="screen">
+  </head>
+  <body ng-controller="contatosCtrl" class="container">
+
+    <div ng-view></div>
+
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers/contatos.ctrl.js" type="text/javascript"></script>
+    <script src="js/controllers/contato.ctrl.js" type="text/javascript"></script>
+    <script src="js/routes/config.route.js" type="text/javascript"></script>
+
+  </body>
+</html>
