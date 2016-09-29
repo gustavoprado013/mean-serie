@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <h1>{{title}}</h1>
+</div>
+
+<div class="form-inline">
+
+  <button class="btn btn-primary" ng-click="adicionar(contato)" ng-disabled="!contato.nome" type="button" name="button">Novo Contato</button>
+
+
+  <a href="#/contato" class="btn btn-primary">Novo Contato</a>
+
+  <div class="form-group">
+    <label>Nome </label>
+    <input class="form-control" placeholder="Nome Completo" ng-model="contato.nome">
+  </div>
+
+</div>
+
+<div class="alert alert-danger" ng-show="contatos.length === 0">
+    Nenhum contato cadastrado!
+</div>
+
+<p class="text-info"ng-show="contatos.length > 0">Total de Contatos: {{contatos.length}}</p>
+
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ação</th>
+    </tr>
+    <tbody>
+      <tr ng-repeat="contato in contatos">
+        <td>{{contato.nome}}</td>
+        <td><button class="btn btn-warning" ng-click="remover(contato)" type="button" name="button">Excluir</button></td>
+      </tr>
+    </tbody>
+  </thead>
+</table>
