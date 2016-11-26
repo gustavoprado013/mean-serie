@@ -8,7 +8,7 @@ module.exports.find = function (query, done) {
 
 module.exports.create = function (obj, done) {
 
-  if(obj.type == "D"){
+  if(obj.type == 'D'){
     obj.value = obj.value * -1;
   }
 

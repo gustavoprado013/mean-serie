@@ -16,18 +16,27 @@ config.configDB();
 mongoose.connect(process.env.MONGODB_CONNECTION);
 
 app.use(bodyParser.json());
+app.use('/app', express.static(__dirname + '/app'));
 
 //Config Routes
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+})
+
 app.get('/api/input', function (req, res) {
 
   inputController.find(req.query, function (err, inputs) {
 
       if(err){
         console.log(err);
-        res.status(500).json(err);
+        res
+        .status(500)
+        .json(err);
 
       }else{
-        res.status(200).json(inputs)
+        res
+        .status(200)
+        .json(inputs)
       }
   })
 });
@@ -38,10 +47,14 @@ app.post('/api/input', function (req, res) {
 
       if(err){
         console.log(err);
-        res.status(500).json(err);
+        res
+        .status(500)
+        .json(err);
 
       }else{
-        res.status(200).json(input)
+        res
+        .status(200)
+        .json(input)
       }
   })
 });
